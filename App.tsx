@@ -3,7 +3,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "./src/screens/HomeScreen";
 import StatsScreen from "./src/screens/StatsScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+// import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { store } from "./src/store";
+import { Provider } from "react-redux";
 
 // Use this for stack navigation for nested screens
 // const Stack = createNativeStackNavigator();
@@ -19,9 +21,11 @@ const TabNavigator = () => (
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <TabNavigator />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <TabNavigator />
+      </NavigationContainer>
+    </Provider>
   );
 };
 
