@@ -7,7 +7,7 @@ export interface DogState {
 }
 
 const initialState: DogState = {
-  url: "",
+  url: "https://dogapi.dog/api/v2/",
   breeds: [],
 };
 
@@ -15,9 +15,6 @@ const dogSlice = createSlice({
   name: "dog",
   initialState,
   reducers: {
-    setUrl: (state, action: PayloadAction<string>) => {
-      state.url = action.payload;
-    },
     setBreeds: (state, action: PayloadAction<Breed[]>) => {
       state.breeds = action.payload;
     },
@@ -36,7 +33,6 @@ const dogSlice = createSlice({
 });
 
 export const {
-  setUrl,
   setBreeds,
   addBreed,
   removeBreed,
